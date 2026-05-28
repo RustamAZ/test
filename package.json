@@ -11,6 +11,7 @@
     "build-nolog": "vite build --config vite/config.prod.mjs"
   },
   "devDependencies": {
+    "@vitejs/plugin-legacy": "^6.1.1",
     "typescript": "~5.7.2",
     "vite": "^6.3.1"
   },

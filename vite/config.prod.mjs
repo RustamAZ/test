@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite';
+import legacy from '@vitejs/plugin-legacy';
 
 const phasermsg = () => {
     return {
@@ -20,28 +21,17 @@ export default defineConfig({
     base: './',
     logLevel: 'warning',
     build: {
-        rollupOptions: {
-            output: {
-                manualChunks: {
-                    phaser: ['phaser']
-                }
-            }
-        },
-        minify: 'terser',
-        terserOptions: {
-            compress: {
-                passes: 2
-            },
-            mangle: true,
-            format: {
-                comments: false
-            }
-        }
+        target: 'es2015',
+        minify: false
     },
     server: {
         port: 8080
     },
     plugins: [
-        phasermsg()
+        phasermsg(),
+        legacy({
+            targets: ['defaults', 'not IE 11'],
+            modernPolyfills: true
+        })
     ]
 });

@@ -3,13 +3,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
     base: './',
     build: {
-        rollupOptions: {
-            output: {
-                manualChunks: {
-                    phaser: ['phaser']
-                }
-            }
-        },
+        target: 'es2015'
     },
     server: {
         port: 8080
